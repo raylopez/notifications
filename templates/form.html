@@ -1,0 +1,76 @@
+<div class="page-header">
+    <h1>{{titulo}}</h1>
+</div>
+
+<form id="formulario" name="formulario" method="post" action="http://192.168.1.65:81/www/notification_server/registro.php"> 
+    <p><input type="text" id="name" name="name" placeholder="Nombre" 
+    required class="form-control"></p> 
+    <p><input type="text" id="email" name="email" placeholder="Correo" required class="form-control"></p> 
+    <p><input type="text" name="regId" id="regId" readonly="readonly" placeholder="regId" class="form-control"></p> 
+    <button class="btn btn-primary" id="btn" type="submit">Registar</button> 
+</form>
+
+<button class="btn btn-primary" type="button" onclick="app.obtenerGCM();">
+	Obtener
+</button>
+
+<div id="deviceready" class="blink"> 
+                <p class="event listening">Connecting to Device</p> 
+                <p class="event received">Device is Ready</p> 
+</div>
+
+<div id="result"></div>
+
+<script>
+	app.initialize();
+	$(document).ready(function(ev){
+		$('#formulario').submit(function(e){
+			e.preventDefault();
+
+        	var nombre = document.getElementById('name').value; 
+	        var email = document.getElementById('email').value; 
+	        var regId = document.getElementById('regId').value;
+	        
+	        if (regId !== "") { 
+	            if (nombre != "" && email != "") { 
+	                //Enviamos los datos al servidor php 
+	                var $this = $(this);
+		        	var frm_url = $this.attr('action');
+		        	var frm_type = $this.attr('method');
+		        	var datos = {
+		        		'name' : nombre,
+		        		'email' : email,
+		        		'regId' : regId
+		        	};
+		        	var result = document.getElementById('result');
+		        	
+		        	
+		        	$.ajax({
+		        		url : frm_url,
+		        		type : frm_type,
+		        		data : datos,
+		        		beforeSend:function(){
+		        			result.innerHTML = 'Enviando...';
+		        		},
+		        		success:function(data){
+		        			
+		        			result.innerHTML = data;
+		        		},
+		        		error:function(err){
+		        			
+		        			result.innerHTML = err;
+		        		}
+		        	});
+		        	
+	                
+	            } 
+	            else{alert('Ingrese un nombre y un correo para el registro en la base de datos.')} 
+	        } 
+	        else 
+	            {alert('Esperando el regId del registro en GCM!');} 
+        });
+
+		
+        
+	});
+</script>

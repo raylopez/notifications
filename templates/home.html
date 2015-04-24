@@ -1,0 +1,20 @@
+<div class="page-header">
+    <h1>{{titulo}}</h1>
+</div>
+
+
+<div class="app">
+    
+    <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="app.clickme();">Detalles</button>
+	<button class="btn btn-warning" type="button" onclick="app.checkConn();">Checar conexión</button>
+	
+    <div id="result"></div>
+</div>
+
+<script type="text/javascript">
+    app.initialize();
+</script>

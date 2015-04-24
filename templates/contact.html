@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h1>{{titulo}}</h1>
+</div>
+
+
+
+<button type="button" class="btn btn-danger btn-fab btn-raised" ng-click="obtenerPosicion();">
+	<i class="fa fa-map-marker"></i>
+</button>
+
+<div id="result"></div>
+<div>
+	
+	<ul>
+		<li ng-repeat="loc in datos">
+			<b>{{loc.types[0]}}</b> : {{loc.long_name}}
+		</li>
+	</ul>
+</div>
