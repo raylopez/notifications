@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app='AppNotification'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="shortcut icon" href="assets/img/favicon.ico" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/jasny-bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/roboto.min.css" rel="stylesheet">
+        <link href="assets/css/material-fullpalette.min.css" rel="stylesheet">
+        <link href="assets/css/ripples.min.css" rel="stylesheet">
+        <link href="assets/css/snackbar.min.css" rel="stylesheet">
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/index.css" rel="stylesheet">
+        <script src='assets/js/jquery.min.js'></script>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angular-route.min.js"></script>
+        <script src='assets/js/app.js'></script>
+        <script src='assets/js/controller.js'></script>
+        <script src="cordova.js"></script>
+        <script src="assets/js/Flashlight.js"></script>
+        <script src="assets/js/barcodescanner.js"></script>
+        <script src="PushNotification.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jasny-bootstrap.min.js"></script>
+        <script src="assets/js/ripples.min.js"></script>
+        <script src="assets/js/material.min.js"></script>
+        <script src="assets/js/snackbar.min.js"></script>
+        <script src="assets/js/jquery.nouislider.min.js"></script>
+        <title>Notificatios</title>
+    </head>
+    <body ng-controller='MainCtrl'>
+        
+        <div class="navmenu navmenu-default navmenu-fixed-left">
+              
+              <a class="navmenu-brand" href="#/">
+                    <span class="fa-stack fa-sm">
+                        <i class="fa fa-cloud fa-stack-2x"></i>
+                        <i class="fa fa-cog fa-stack-1x" style="color:#f8f8f8"></i>
+                    </span>
+
+                    <span class="text-brand">
+                        Menú
+                    </span>
+              </a>
+              <ul class="nav navmenu-nav">
+                <li>
+                    <a href="#/"><i class="fa fa-home"></i> Inicio</a>
+                </li>
+                <li>
+                    <a href="#/about">
+                        <i class="fa fa-info-circle"></i> Nosotros
+                    </a>
+                </li>
+                <li>
+                    <a href="#/gallery">
+                        <i class="fa fa-image"></i> Galería
+                    </a>
+                </li>
+                <li>
+                    <a href="#/contact">
+                        <i class="fa fa-at"></i> Contacto
+                    </a>
+                </li>
+                <li>
+                    <a href="#/qr">
+                        <i class="fa fa-qrcode"></i> Escaner
+                    </a>
+                </li>
+                <li>
+                    <a href="#/form">
+                        <i class="fa fa-clipboard"></i> Formulario
+                    </a>
+                </li>
+                <li>
+                    <a href="#/flashlight">
+                        <i class="fa fa-lightbulb-o"></i> Literna
+                    </a>
+                </li>
+                <li class="ultimo">
+                    <a href="#" onclick="app.cerrarApp();">
+                        <i class="fa fa-times-circle"></i>
+                        Salir
+                    </a>
+                </li>
+              </ul>
+              
+        </div>
+        
+        <div class="canvas">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+            
+                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">
+                    <span class="fa-stack fa-sm">
+                        <i class="fa fa-cloud fa-stack-2x fa-inverse"></i>
+                        <i class="fa fa-cog fa-stack-1x" style="color:#0d47a1"></i>
+                    </span>
+
+                    <span class="text-brand">
+                        Cloud notifications
+                    </span>
+                </a>
+            </div>
+          
+          
+          <div class="container top">
+            
+            
+            <div ng-view></div>
+            
+          </div><!-- /.container -->
+        </div>
+        
+    </body>
+</html>
